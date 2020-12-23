@@ -1,0 +1,161 @@
+ell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ touch third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git init
+Initialized empty Git repository in C:/Users/dell/Desktop/GoMyCode/learn-git-again/.git/
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git add third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m
+error: switch `m' requires a value
+'
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m
+error: switch `m' requires a value
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m "adding third.txt"
+[master (root-commit) fb19ff4] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git log
+commit fb19ff4d4475bb88c968f6f081952d520e54a3a4 (HEAD -> master)
+Author: cheikhmed16 <cheikhmed16@gmail.com>
+Date:   Wed Dec 23 15:43:05 2020 +0100
+
+    adding third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ touch fourth.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git add fourth.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m "adding fourth.txt"
+[master 4f6c7d9] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git rm third.txt
+rm 'third.txt'
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m "update"
+[master 3d4ba53] update
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git commit -m "removing third.txt"
+On branch master
+nothing to commit, working tree clean
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git log
+commit 3d4ba53f7674a6b460bef105b01da1a3e0cac312 (HEAD -> master)
+Author: cheikhmed16 <cheikhmed16@gmail.com>
+Date:   Wed Dec 23 15:48:02 2020 +0100
+
+    update
+
+commit 4f6c7d9edc7be6c2ead4237be43c3b4546efc7a7
+Author: cheikhmed16 <cheikhmed16@gmail.com>
+Date:   Wed Dec 23 15:44:59 2020 +0100
+
+    adding fourth.txt
+
+commit fb19ff4d4475bb88c968f6f081952d520e54a3a4
+Author: cheikhmed16 <cheikhmed16@gmail.com>
+Date:   Wed Dec 23 15:43:05 2020 +0100
+
+    adding third.txt
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git config --global core.page cat
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+user.email=cheikhmed16@gmail.com
+user.name=cheikhmed16
+core.page=cat
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git config --global
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
+
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git config --global user.name
+cheikhmed16
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$ git config --global user.email
+cheikhmed16@gmail.com
+
+dell@DESKTOP-L766S1Q MINGW64 ~/Desktop/GoMyCode/learn-git-again (master)
+$
